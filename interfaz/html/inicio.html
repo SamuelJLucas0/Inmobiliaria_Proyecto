@@ -10,71 +10,80 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="form-box login">
-            <form action="#">
-                <h1>Inicio de sesión</h1>
-                <div class="input-box">
-                    <input type="text" id="mail-l" placeholder="Usuario" required>
-                    <i class="bx bxs-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="password-l" placeholder="Contraseña" required>
-                    <i class="bx bxs-lock-alt"></i>
-                </div>
-                <div class="forgot-link">
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                </div>
-                <button type="submit" class="btn" id="inicio">Iniciar Sesión</button>
-                <p>O logueate con tus redes sociales</p>
-                <div class="social-icons">
-                    <a href="#"><i class="bx bxl-facebook"></i></a>
-                    <a href="#"><i class="bx bxl-instagram"></i></a>
-                    <a href="#"><i class="bx bxl-google"></i></a>
-                </div>
-                <div id="login-error"></div>
-            </form>
-        </div>
-        <div class="form-box register">
-            <form action="#">
-                <h1>Registro</h1>
-                <div class="input-box">
-                    <input type="text" id="name" placeholder="Nombre" required>
-                    <i class="bx bxs-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="email" id="mail" placeholder="Correo Electrónico" required>
-                    <i class="bx bxs-envelope"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="password" placeholder="Contraseña" required>
-                    <i class="bx bxs-lock-alt"></i>
-                </div>
-                <button type="submit" class="btn" id="registro">Registrarse</button>
-                <p>O registrate con tus redes sociales</p>
-                <div class="social-icons">
-                    <a href="#"><i class="bx bxl-facebook"></i></a>
-                    <a href="#"><i class="bx bxl-instagram"></i></a>
-                    <a href="#"><i class="bx bxl-google"></i></a>
-                </div>
-                <div id="register-error"></div>
-            </form>
-        </div>
+    <div class="slider">
+        <figure></figure>
+        <figure></figure>
+        <figure></figure>
+        <figure></figure>
 
-
-        <div class="toggle-box">
-            <div class="toggle-panel toggle-left">
-                <h1>¡Bienvenido de nuevo!</h1>
-                <p>¿Aun no tienes una cuenta?</p>
-                <button class="btn register-btn">Registrate</button>
+        <div class="container">
+            <div class="form-box login">
+                <form action="#">
+                    <h1>Inicio de sesión</h1>
+                    <div class="input-box">
+                        <input type="text" id="mail-l" placeholder="Usuario" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password-l" placeholder="Contraseña" required>
+                        <i class="bx bxs-lock-alt"></i>
+                    </div>
+                    <div class="forgot-link">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn" id="inicio">Iniciar Sesión</button>
+                    <p>O logueate con tus redes sociales</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                        <a href="#"><i class="bx bxl-google"></i></a>
+                    </div>
+                    <div id="login-error"></div>
+                </form>
+            </div>
+            <div class="form-box register">
+                <form action="#">
+                    <h1>Registro</h1>
+                    <div class="input-box">
+                        <input type="text" id="name" placeholder="Nombre" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" id="mail" placeholder="Correo Electrónico" required>
+                        <i class="bx bxs-envelope"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <i class="bx bxs-lock-alt"></i>
+                    </div>
+                    <button type="submit" class="btn" id="registro">Registrarse</button>
+                    <p>O registrate con tus redes sociales</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bx bxl-facebook"></i></a>
+                        <a href="#"><i class="bx bxl-instagram"></i></a>
+                        <a href="#"><i class="bx bxl-google"></i></a>
+                    </div>
+                    <div id="register-error"></div>
+                </form>
+            </div>
+    
+    
+            <div class="toggle-box">
+                <div class="toggle-panel toggle-left">
+                    <h1>¡Bienvenido de nuevo!</h1>
+                    <p>¿Aun no tienes una cuenta?</p>
+                    <button class="btn register-btn">Registrate</button>
+                </div>
+            </div>
+    
+            <div class="toggle-panel toggle-right">
+                <h1>¡La mejor opción para buscar <br>casas y mas!</h1>
+                <p>¿Ya tienes una cuenta?</p>
+                <button class="btn login-btn">Iniciar Sesión</button>
             </div>
         </div>
 
-        <div class="toggle-panel toggle-right">
-            <h1>¡La mejor opción para buscar <br>casas y mas!</h1>
-            <p>¿Ya tienes una cuenta?</p>
-            <button class="btn login-btn">Iniciar Sesión</button>
-        </div>
     </div>
+    
 </body>
 </html>
