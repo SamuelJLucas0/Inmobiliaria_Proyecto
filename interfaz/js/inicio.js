@@ -43,12 +43,11 @@ function registro() {
         }
         else{
             console.log(res);
-            window.location.href = "principal.html";
+            window.location.href = "inicio.html";
         }
         
     }).catch(function(err) {
         console.log(err);
-        
         var errorElement = document.getElementById('register-error');
         errorElement.textContent = "Ocurrió un error al registrar. Intenta nuevamente."; 
     });

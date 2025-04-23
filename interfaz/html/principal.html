@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Galería</title>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>ola</h1>
+    <div id="guardar">
+        <label for="avatar">Sube tus imágenes:</label>
+        <input type="file" id="avatar" name="imagenes" accept="image/*" multiple>
+        <button id="btn">Subir Imagen</button>
+    </div>
+
+    <div id="galeria">
+        <h2>Galería de Imágenes</h2>
+        <button id="btn-img">Ver imagenes subidas</button>
+    </div>
+
+    <script src="../js/principal.js"></script>
 </body>
 </html>
