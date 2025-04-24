@@ -11,6 +11,7 @@
     <form id="guardar">
         <label for="tipo">Tipo de propiedad:</label>
         <select id="tipo" name="tipo">
+            <option value="" disabled selected>Selecciona un tipo de propiedad</option>
             <option value="Casa">Casa</option>
             <option value="Departamento">Departamento</option>
             <option value="Terreno">Terreno</option>
@@ -18,6 +19,7 @@
 
         <label for="estado">Estado:</label>
         <select id="estado" name="estado">
+            <option value="" disabled selected>Selecciona el Estado de ubicación</option>
             <option value="">Selecciona un estado</option>
             <option value="Aguascalientes">Aguascalientes</option>
             <option value="Baja California">Baja California</option>
@@ -64,12 +66,14 @@
 
         <label for="estacionamiento">Estacionamiento:</label>
         <select id="estacionamiento" name="estacionamiento">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="Sí">Sí</option>
             <option value="No">No</option>
         </select>
 
         <label for="amueblado">Amueblado:</label>
         <select id="amueblado" name="amueblado">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="Sí">Sí</option>
             <option value="No">No</option>
         </select>
@@ -81,7 +85,7 @@
         <input type="number" id="precio" name="precio" min="0" step="any">
 
         <label for="descripcion">Descripción de la propiedad:</label>
-        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+        <input type="text" id="descripcion" name="descripcion">
 
         <label for="avatar">Sube tus imágenes:</label>
         <input type="file" id="avatar" name="imagenes" accept="image/*" multiple>
@@ -89,11 +93,11 @@
         <button id="btn" type="button">Publicar</button>
     </form>
 
-    <div id="galeria">
+    <!-- <div id="galeria">
         <h2>Galería de Imágenes</h2>
         <button id="btn-img">Ver imágenes subidas</button>
     </div>
-
-    <script src="../js/principal.js"></script>
+    -->
+    <script src="../js/publicar.js"></script>
 </body>
 </html>

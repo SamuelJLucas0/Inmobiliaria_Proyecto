@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+form {
+    max-width: 600px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input, form select, form textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#galeria {
+    margin-top: 40px;
+}
+
+.imagen-container img {
+    max-width: 200px;
+    margin: 10px;
+}
+select option[disabled] {
+    color: #888;
+}

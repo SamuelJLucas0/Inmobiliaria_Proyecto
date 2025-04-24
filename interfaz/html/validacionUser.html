@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/validacionUser.css">
+    <title>Validacion</title>
+</head>
+<body>
+    <form id="verificacion-form" enctype="multipart/form-data">
+        <!-- Número de teléfono -->
+        <label for="phone">Teléfono:</label>
+        <input type="text" id="phone" name="phone" maxlength="10" required />
+    
+        <!-- Correo electrónico -->
+        <label for="mail">Correo electrónico:</label>
+        <input type="email" id="mail" name="mail" required />
+    
+        <!-- CURP -->
+        <label for="curp">CURP:</label>
+        <input type="text" id="curp" name="curp" maxlength="18"  required />
+    
+        <!-- RFC -->
+        <label for="rfc">RFC:</label>
+        <input type="text" id="rfc" name="rfc" maxlength="13" required />
+    
+        <!-- Imagen del INE -->
+        <label for="ine_photo">Fotografía del INE:</label>
+        <input type="file" id="ine_photo" name="ine_photo" accept="image/*" required />
+    
+        <!-- Fotografía del usuario -->
+        <label for="photo_user">Fotografía del usuario:</label>
+        <input type="file" id="photo_user" name="photo_user" accept="image/*" required />
+    
+        <button type="submit" id="enviar">Enviar verificación</button>
+      </form>
+
+    <script>
+    // CURP y RFC en mayúsculas
+    ['curp', 'rfc'].forEach(id => {
+        const input = document.getElementById(id);
+        input.addEventListener('input', () => {
+        input.value = input.value.toUpperCase();
+        });
+    });
+
+    // Solo números en teléfono y máx 10 dígitos
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, '');
+    });
+    </script>
+
+    <script src="../js/validacionUser.js"></script>
+
+</body>
+</html>

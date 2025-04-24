@@ -1,14 +1,11 @@
 window.onload = init;
-const input = document.getElementById("avatar");
 
 function init() {
     if (!localStorage.getItem("token")) {
         window.location.href = "login.html";
         return;
     }
-
-    document.getElementById('btn').addEventListener('click', Subir);
-    document.getElementById('btn-img').addEventListener('click', Ver);
+    Ver();
 }
 
 function Ver() {
@@ -48,36 +45,5 @@ function mostrarimagenes(imagenes) {
 
         contenedor.appendChild(imagenElement);
         resultadoDiv.appendChild(contenedor);
-    });
-}
-
-function Subir() {
-    const archivos = input.files;
-    if (archivos.length === 0) {
-        alert("Selecciona al menos un archivo");
-        return;
-    }
-
-    const formData = new FormData();
-    for (let i = 0; i < archivos.length; i++) {
-        formData.append("imagenes", archivos[i]);
-    }
-
-    const token = localStorage.getItem("token");
-
-    axios.post('http://localhost:3000/usuarios/subirimg', formData, {
-        headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data'
-        }
-    })
-    .then(res => {
-        if (res.status === 201) {
-            alert("Imágenes subidas correctamente");
-        }
-    })
-    .catch(err => {
-        alert("Error al subir imágenes");
-        console.log(err);
     });
 }
