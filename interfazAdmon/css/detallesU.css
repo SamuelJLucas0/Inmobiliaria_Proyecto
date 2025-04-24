@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .detalle-container {
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detalle-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .imagen-seccion {
+    width: 45%;
+  }
+  
+  .imagen-seccion h3 {
+    margin-bottom: 10px;
+  }
+  
+  .imagen-seccion img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+  }
+  
+  .datos-seccion p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .botones-detalle {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .btn-verde, .btn-rojo {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .btn-verde {
+    background-color: #28a745;
+  }
+  
+  .btn-rojo {
+    background-color: #dc3545;
+  }
+  

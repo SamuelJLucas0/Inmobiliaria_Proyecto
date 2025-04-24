@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle de Validación</title>
+  <link rel="stylesheet" href="../css/detallesU.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+  <div class="detalle-container">
+    <div class="detalle-header">
+      <div class="imagen-seccion">
+        <h3>Imagen del Usuario:</h3>
+        <img id="fotoUsuario" src="" alt="Foto Usuario">
+      </div>
+      <div class="imagen-seccion">
+        <h3>Foto de la INE:</h3>
+        <img id="fotoIne" src="" alt="Foto INE">
+      </div>
+    </div>
+
+    <div class="datos-seccion">
+      <p><strong>Nombre:</strong> <span id="nombre"></span></p>
+      <p><strong>Email:</strong> <span id="email"></span></p>
+      <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+      <p><strong>CURP:</strong> <span id="curp"></span></p>
+      <p><strong>RFC:</strong> <span id="rfc"></span></p>
+      <p><strong>Status:</strong> <span id="status"></span></p>
+    </div>
+
+    <div class="botones-detalle">
+      <button class="btn-verde">Validar</button>
+      <button class="btn-rojo">Rechazar</button>
+    </div>
+  </div>
+
+  <script src="../js/detallesU.js"></script>
+</body>
+</html>

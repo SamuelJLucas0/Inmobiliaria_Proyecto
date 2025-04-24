@@ -158,6 +158,7 @@ usuarios.get('/validaciones', (req, res) => {
         v.phone,
         v.curp,
         v.rfc,
+        v.status,
         u.name
       FROM validaru v
       JOIN usuarios u ON v.id_user = u.id_user
@@ -172,4 +173,61 @@ usuarios.get('/validaciones', (req, res) => {
       res.json(results);
     });
   });
+
+
+// ===================== Validacion True admin =====================
+usuarios.post('/validar/:id', async (req, res) => {
+    const idUser = req.params.id;
+  
+    try {
+      // Actualizar estado en la tabla validaru
+      const updateValidaruQuery = `
+        UPDATE validaru 
+        SET status = 'Validado'
+        WHERE id_user = ?
+      `;
+      await db.query(updateValidaruQuery, [idUser]);
+  
+      // Actualizar user_validation en la tabla usuarios
+      const updateUsuarioQuery = `
+        UPDATE usuarios 
+        SET user_validation = 'T'
+        WHERE id_user = ?
+      `;
+      await db.query(updateUsuarioQuery, [idUser]);
+  
+      res.status(200).json({ message: "Usuario validado correctamente" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error al validar usuario" });
+    }
+  });
+  
+// ===================== Validacion rechazar admin =====================
+usuarios.post('/rechazar/:id', async (req, res) => {
+    const idUser = req.params.id;
+  
+    try {
+      // Actualizar estado en la tabla validaru
+      const updateValidaruQuery = `
+        UPDATE validaru 
+        SET status = 'Rechazado'
+        WHERE id_user = ?
+      `;
+      await db.query(updateValidaruQuery, [idUser]);
+      
+      const updateUsuarioQuery = `
+        UPDATE usuarios 
+        SET user_validation = 'F'
+        WHERE id_user = ?
+      `;
+      await db.query(updateUsuarioQuery, [idUser]);
+  
+      res.status(200).json({ message: "Usuario rechazado correctamente" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error al rechazar usuario" });
+    }
+  });
+  
 module.exports = usuarios;
