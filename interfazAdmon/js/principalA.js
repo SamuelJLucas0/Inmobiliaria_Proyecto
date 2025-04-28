@@ -1,6 +1,6 @@
 window.onload = async () => {
   if (!localStorage.getItem("token")) {
-    window.location.href = "login.html";
+    window.location.href = "inicio.html";
     return;
   }
 

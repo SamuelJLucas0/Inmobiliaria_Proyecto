@@ -74,21 +74,21 @@ usuarios.post('/subirpubli', auth, upload.array('imagenes', 10), async (req, res
     const rutasJson = JSON.stringify(rutas);
 
     const {
-        PRO, ESTADO, MUN, HAB, BAN, EST, AMU, TAM, PRE, DES
+        PRO, ESTADO, MUN, HAB, BAN, EST, AMU, TAM, PRE, DES, Extras
     } = req.body;
 
     try {
         const sql = `
             INSERT INTO publicaciones (
                 id_user, imagenes, PRO, ESTADO, MUN, HAB,
-                BAN, EST, AMU, TAM, PRE, DES
+                BAN, EST, AMU, TAM, PRE, DES, Extras
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
 
         const values = [
             userId, rutasJson, PRO, ESTADO, MUN, HAB,
-            BAN, EST, AMU, TAM, PRE, DES
+            BAN, EST, AMU, TAM, PRE, DES, Extras
         ];
 
         await db.query(sql, values);
@@ -230,4 +230,45 @@ usuarios.post('/rechazar/:id', async (req, res) => {
     }
   });
   
+// ===================== GET PUBLICACIONES =====================
+usuarios.get('/getpublicaciones', async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        p.*, 
+        v.phone 
+      FROM 
+        publicaciones p
+      INNER JOIN 
+        validaru v 
+      ON 
+        p.id_user = v.id_user
+    `;
+    
+    const resultados = await db.query(query);
+    res.json(resultados);
+    console.log(resultados);
+    
+  } catch (error) {
+    console.error('Error al obtener publicaciones:', error);
+    res.status(500).json({ error: 'Error al obtener las publicaciones' });
+  }
+});
+
+usuarios.get('/obtenerdatos/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+
+      const [usuario] = await db.query('SELECT u.name, v.mail2, v.phone, v.photo_user FROM usuarios u JOIN validaru v ON u.id_user = v.id_user WHERE u.id_user = ?', [id]);
+      if (usuario.length === 0) {
+          return res.status(404).json({ message: 'Usuario no encontrado' });
+      }
+      console.log(usuario);
+      res.json(usuario);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error al obtener datos del usuario' });
+  }
+});
+
 module.exports = usuarios;

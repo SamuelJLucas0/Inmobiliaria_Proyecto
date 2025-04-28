@@ -2,48 +2,68 @@ window.onload = init;
 
 function init() {
     if (!localStorage.getItem("token")) {
-        window.location.href = "login.html";
+        window.location.href = "inicio.html";
         return;
     }
-    Ver();
+  
+    cargarPublicaciones(); // Llamamos a la función para cargar publicaciones
 }
 
-function Ver() {
-    const token = localStorage.getItem('token');
+function cargarPublicaciones() {
+    const contenedor = document.querySelector('.resultados');
+    const token = localStorage.getItem("token");
 
-    axios.get('http://localhost:3000/usuarios/getimg', {
-        headers: { Authorization: `Bearer ${token}` }
-    })
-    .then(response => {
-        const resultadoDiv = document.getElementById('galeria');
-        resultadoDiv.innerHTML = "<h2>Galería de Imágenes</h2>";
-
-        if (response.data.code === 200 && response.data.imagenes.length > 0) {
-            mostrarimagenes(response.data.imagenes);
-        } else {
-            resultadoDiv.innerHTML += "<p>No hay imágenes para mostrar.</p>";
+    fetch('http://localhost:3000/usuarios/getpublicaciones', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
         }
     })
+    .then(res => {
+        if (res.status === 401) {
+            // Token inválido o expirado
+            localStorage.removeItem("token");
+            window.location.href = "inicio.html";
+            return;
+        }
+        return res.json();
+    })
+    .then(data => {
+        if (!data) return; // Si no hay datos, salimos
+
+        data.forEach(publi => {
+            const resultado = document.createElement('div');
+            resultado.className = 'resultado';
+
+            const preview = JSON.parse(publi.imagenes)[0] || 'default.jpg';
+
+            resultado.innerHTML = `
+                <div class="imagen">
+                    <img src="http://localhost:3000${preview}" alt="Imagen del producto" class="imagen-producto">
+                </div>
+                <div class="info">
+                    <div class="desc">
+                        <h3>MXN $${publi.PRE}</h3>
+                        <p>${publi.PRO} en ${publi.ESTADO}, ${publi.MUN}.</p>
+                        <p>${publi.TAM}m².</p>
+                        <p>${publi.phone}</p>
+                    </div>
+                    <input type="button" value="Ver más" class="boton-ver-mas">
+                </div>
+            `;
+
+            const verBtn = resultado.querySelector('.boton-ver-mas');
+            verBtn.addEventListener('click', () => {
+                localStorage.setItem('detallePubli', JSON.stringify(publi));
+                localStorage.removeItem('detalleUsuario');
+                window.location.href = 'detalles.html';
+            });
+
+            contenedor.appendChild(resultado);
+        });
+    })
     .catch(error => {
-        const resultadoDiv = document.getElementById('galeria');
-        resultadoDiv.innerHTML += "<p>Error al cargar imágenes.</p>";
-        console.log(error);
+        console.error('Error al cargar publicaciones:', error);
     });
 }
 
-function mostrarimagenes(imagenes) {
-    const resultadoDiv = document.getElementById('galeria');
-
-    imagenes.forEach(ruta => {
-        const contenedor = document.createElement('div');
-        contenedor.className = "imagen-container";
-
-        const imagenElement = document.createElement('img');
-        imagenElement.src = `http://localhost:3000${ruta}`;
-        imagenElement.style.maxWidth = "200px";
-        imagenElement.style.margin = "10px";
-
-        contenedor.appendChild(imagenElement);
-        resultadoDiv.appendChild(contenedor);
-    });
-}

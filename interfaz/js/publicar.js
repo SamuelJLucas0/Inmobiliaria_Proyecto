@@ -3,7 +3,7 @@ const input = document.getElementById("avatar");
 
 function init() {
     if (!localStorage.getItem("token")) {
-        window.location.href = "login.html";
+        window.location.href = "inicio.html";
         return;
     }
 
@@ -21,6 +21,9 @@ const tamanoTerreno = document.getElementById("tamano");
 const precio = document.getElementById("precio");
 const descripcion = document.getElementById("descripcion");
 
+// Obtener los checkboxes y sus valores
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
 function Subir(){
     const archivos = input.files;
 
@@ -34,6 +37,9 @@ function Subir(){
     const TAM = tamanoTerreno.value;
     const PRE = precio.value;
     const DES = descripcion.value;
+
+    // Obtener los valores de los checkboxes seleccionados
+    const Extras = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
 
     if (
         archivos.length === 0 || PRO === "" || ESTADO === "" || MUN === "" ||
@@ -59,6 +65,8 @@ function Subir(){
     formData.append("TAM", TAM);
     formData.append("PRE", PRE);
     formData.append("DES", DES);
+    formData.append("Extras", JSON.stringify(Extras)); // Convertir el array a una cadena JSON
+
 
 
     const token = localStorage.getItem("token");
@@ -96,4 +104,6 @@ function limpiarFormulario() {
     
     // Limpiar el campo de archivos (input de imágenes)
     document.getElementById('avatar').value = '';
+
+    document.querySelectorAll('input[type="checkbox"]').checked = false;
 }

@@ -5,95 +5,35 @@
     <title>Galería</title>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="../css/publicar.css">
+    <link rel="stylesheet" href="../css/principal.css">
 </head>
 <body>
-    <form id="guardar">
-        <label for="tipo">Tipo de propiedad:</label>
-        <select id="tipo" name="tipo">
-            <option value="Casa">Casa</option>
-            <option value="Departamento">Departamento</option>
-            <option value="Terreno">Terreno</option>
-        </select>
+    <div>
+        <div class="arriba">
+            <img src="" alt="Logo de CASSAS" id="logo">
+            <input type="text" placeholder="Buscar en CASSASQRO.COM" id="buscador">
+            <h3 id="txt">Hola "Usuario" gracias por escoger CASSAS</h3>
+            <img src="" alt="Foto de perfil" id="foto-perfil">
+        </div>
+        <div class="botones">
+            <input type="button" value="CONTACTANOS" class="botones-arriba">
+            <input type="button" value="AYUDA" class="botones-arriba">
+            <input type="button" value="SOBRE NOSOTROS" class="botones-arriba">
+            <input type="button" value="SUGERENCIAS" class="botones-arriba">
+        </div>
 
-        <label for="estado">Estado:</label>
-        <select id="estado" name="estado">
-            <option value="">Selecciona un estado</option>
-            <option value="Aguascalientes">Aguascalientes</option>
-            <option value="Baja California">Baja California</option>
-            <option value="Baja California Sur">Baja California Sur</option>
-            <option value="Campeche">Campeche</option>
-            <option value="Chiapas">Chiapas</option>
-            <option value="Chihuahua">Chihuahua</option>
-            <option value="Ciudad de México">Ciudad de México</option>
-            <option value="Coahuila">Coahuila</option>
-            <option value="Colima">Colima</option>
-            <option value="Durango">Durango</option>
-            <option value="Estado de México">Estado de México</option>
-            <option value="Guanajuato">Guanajuato</option>
-            <option value="Guerrero">Guerrero</option>
-            <option value="Hidalgo">Hidalgo</option>
-            <option value="Jalisco">Jalisco</option>
-            <option value="Michoacán">Michoacán</option>
-            <option value="Morelos">Morelos</option>
-            <option value="Nayarit">Nayarit</option>
-            <option value="Nuevo León">Nuevo León</option>
-            <option value="Oaxaca">Oaxaca</option>
-            <option value="Puebla">Puebla</option>
-            <option value="Querétaro">Querétaro</option>
-            <option value="Quintana Roo">Quintana Roo</option>
-            <option value="San Luis Potosí">San Luis Potosí</option>
-            <option value="Sinaloa">Sinaloa</option>
-            <option value="Sonora">Sonora</option>
-            <option value="Tabasco">Tabasco</option>
-            <option value="Tamaulipas">Tamaulipas</option>
-            <option value="Tlaxcala">Tlaxcala</option>
-            <option value="Veracruz">Veracruz</option>
-            <option value="Yucatán">Yucatán</option>
-            <option value="Zacatecas">Zacatecas</option>
-        </select>
-
-        <label for="municipio">Municipio o Delegación:</label>
-        <input type="text" id="municipio" name="municipio">
-
-        <label for="habitaciones">Habitaciones:</label>
-        <input type="number" id="habitaciones" name="habitaciones" min="0">
-
-        <label for="banios">Baños:</label>
-        <input type="number" id="banios" name="banios" min="0">
-
-        <label for="estacionamiento">Estacionamiento:</label>
-        <select id="estacionamiento" name="estacionamiento">
-            <option value="Sí">Sí</option>
-            <option value="No">No</option>
-        </select>
-
-        <label for="amueblado">Amueblado:</label>
-        <select id="amueblado" name="amueblado">
-            <option value="Sí">Sí</option>
-            <option value="No">No</option>
-        </select>
-
-        <label for="tamano">Tamaño del terreno (m²):</label>
-        <input type="number" id="tamano" name="tamano" min="0">
-
-        <label for="precio">Precio (MXN):</label>
-        <input type="number" id="precio" name="precio" min="0" step="any">
-
-        <label for="descripcion">Descripción de la propiedad:</label>
-        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
-
-        <label for="avatar">Sube tus imágenes:</label>
-        <input type="file" id="avatar" name="imagenes" accept="image/*" multiple>
-
-        <button id="btn" type="button">Publicar</button>
-    </form>
-
-    <div id="galeria">
-        <h2>Galería de Imágenes</h2>
-        <button id="btn-img">Ver imágenes subidas</button>
+        <div class="container">
+            <div class="izquierda">
+                <h2>Filtros</h2>
+            </div>
+            <div class="derecha">
+                <h2>Resultados</h2>
+                <div class="resultados">
+                   
+                </div>     
+            </div>
+        </div>
     </div>
-
     <script src="../js/principal.js"></script>
 </body>
 </html>
