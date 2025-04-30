@@ -5,6 +5,9 @@ html, body {
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
+div{
+}
+
 .arriba {
     background-color: #AE3E3E;
     width: 100%;
@@ -77,24 +80,36 @@ html, body {
 }
 
 .izquierda {
-    background-color: #F3F2F2;
+    background-color: #e5e5e5;
     width: 20%;
-    padding: 20px 0;
+    padding: 20px 40px;
     display: flex;
     justify-content: center;
     box-shadow: inset -5px 0 5px rgba(0, 0, 0, 0.1); /* sombra interna a la derecha */
+    left: 0px;
+    position: relative;
+    text-align: center;
 
+
+}
+
+.izquierda option, select{
+    width: 80%;
+    height: 25px;
+    border-radius: 20px;
 }
 
 .derecha {
     background-color: #ffffff;
-    width: 80%;
-    padding: 20px;
+
+    width: 100%;
+    padding: 20px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .resultados{
+    
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
     width: 90%;
     padding: 50px;
@@ -166,5 +181,37 @@ html, body {
 }
 
 .boton-ver-mas:hover {
-    background-color: #db6666;
+    background-color: #AE3E3E;
+}
+
+
+.checkbox-container {
+    align-items: center;
+    margin: 20px 10% 20px 10%;
+    width: 80%;
+    height: auto;
+    background-color: #AE3E3E;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.checkbox-container h4 {
+    margin-top: 10px;
+}
+
+.checkbox-grid {
+    display: none;
+    padding: 10px;
+    text-align: left;
+}
+
+.checkbox-container:hover .checkbox-grid {
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+.checkbox-grid label{
+    font-size: 12px;
 }
